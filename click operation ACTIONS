@@ -1,0 +1,35 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		
+	
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\admin\\Downloads\\chromedriver_win32\\chromedriver.exe");
+	WebDriver driver = new ChromeDriver();
+	driver.get("https://www.google.com/");
+	driver.manage().window().maximize();
+	driver.findElement(By.xpath("//input[@name='q']")).sendKeys("panda");
+	
+	driver.findElement(By.xpath("//input[@name='btnK']")); //find the element on which click operation to be performed 
+	
+	WebElement but1= driver.findElement(By.xpath("//input[@name='btnK']"));//but1 new element object 
+	
+	Actions clear1 = new Actions(driver); // clear1 actions class to move and click element 
+	
+	
+	
+	
+	clear1.moveToElement(but1).click().build().perform(); // used clear1 and but1
+	driver.navigate().back();
+	driver.quit();
+	
+	}
+
+}
